@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TungPTITB/BTL_CNPM_Group03.git"
+    "url": "git+https://github.com/vantuan25072001/team03.git"
   },
   "keywords": [
     "12345678"
@@ -17,9 +17,9 @@
   "author": "group03",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TungPTITB/BTL_CNPM_Group03/issues"
+    "url": "https://github.com/vantuan25072001/team03/issues"
   },
-  "homepage": "https://github.com/TungPTITB/BTL_CNPM_Group03#readme",
+  "homepage": "https://github.com/vantuan25072001/team03#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "bcryptjs": "^2.4.3",
