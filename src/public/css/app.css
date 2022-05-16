@@ -1,145 +1,125 @@
 .card-course-item {
   margin-top: 16px; }
 
-* {
-  box-sizing: border-box;
-  padding: 0px; }
-
 body {
-  margin: 0; }
+  background-image: url("../img/backgroud.jpg");
+  background-size: cover;
+  background-position-y: -100px; }
 
-body {
-  font-family: Arial;
-  padding: 10px;
-  background: #ccad70; }
+.container {
+  max-width: 960px;
+  margin: 0px auto; }
 
-.header {
-  height: 100%;
-  background-color: white;
+#header {
+  background-color: #323533; }
+
+nav {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between; }
+
+#logo {
+  padding: 0px 0px; }
+
+#logo img {
+  max-width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%; }
+
+#main-menu {
+  display: flex;
+  list-style: none;
   margin: 0;
-  padding: 10px 0px; }
+  padding: 0; }
 
-h1 {
-  color: #e6e6f4;
-  text-align: center;
-  font-size: 42px;
-  margin: 0; }
-
-.slogan {
-  color: #e6e6f4;
-  text-align: center;
-  font-size: 22px;
-  margin: 0;
-  position: relative; }
-
-.topnav {
-  overflow: hidden;
-  background-color: #e06c41; }
-
-.topnav {
-  overflow: hidden;
-  background-color: #09090c; }
-
-.topnav a {
-  float: left;
+#main-menu li a {
+  color: aliceblue;
   display: block;
-  color: #c7c075;
-  text-align: center;
-  padding: 14px 16px;
+  padding: 0px 20px;
   text-decoration: none;
+  line-height: 100px; }
+
+#main-menu li {
   position: relative; }
 
-.topnav a:hover {
-  background-color: #054f1f;
-  color: white;
-  font-weight: bold; }
+.input-group {
+  padding-top: 30px; }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #f0f0f0; }
-
-li {
-  float: left; }
-
-li a,
-.droppr {
-  display: inline-block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none; }
-
-li a:hover,
-.dropdown:hover .dropbtn {
-  background-color: white; }
-
-li.dropdown {
-  display: inline-block; }
-
-.dropdown-content {
-  display: none;
+#main-menu ul.sub-menu {
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1; }
+  background-color: #323533;
+  padding: 15px 0px;
+  list-style: none;
+  width: 200px;
+  border-bottom: 1px solid #323533;
+  display: none; }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left; }
-
-.dropdown-content a:hover {
-  background-color: white; }
-
-.dropdown:hover .dropdown-content {
+#main-menu li:hover > ul.sub-menu {
   display: block; }
 
-#left_sidebar {
-  float: left;
-  width: 300px;
-  height: 600px;
-  background: blue; }
+#main-menu ul.sub-menu a {
+  padding: 0px 8px;
+  border-bottom: 1px solid #323533;
+  left: 0; }
 
-#right_sidebar {
-  float: right;
-  width: 300px;
-  height: 600px;
-  background: green; }
+#main-menu ul.sub-menu li:last-child a {
+  border: none; }
 
-#content {
-  margin-left: 100px;
-  margin-right: 100px;
-  height: 300px;
-  background: #fff; }
+#main-menu .sub-menu > li:hover > a {
+  background-color: #7db18e; }
 
-.footer {
-  text-align: center;
-  background-color: white; }
+#main-menu ul.sub-menu ul.sub-menu {
+  left: 200px;
+  top: -15px; }
 
-.col-md-9 h3 {
-  padding: 20px 0px; }
+#main-menu > li > a {
+  position: relative; }
 
-.col-md-3 .list-group {
-  margin-top: 40px; }
-
-.topnav .mt-4 {
-  width: 20px;
-  overflow: hidden;
-  background: 250px; }
-
-.topnav .login {
-  float: right; }
-
-.topnav .timkiem {
+#main-menu > li > a::before {
+  content: "";
+  height: 4px;
+  width: 0%;
+  background-color: #e9dede;
   position: absolute;
-  width: 200px;
+  bottom: 0px;
+  left: 0px; }
+
+#main-menu > li:hover > a::before {
+  width: 100%; }
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
   text-align: center;
-  padding-top: 7px;
-  display: block;
-  margin-left: 150px; }
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem; }
+
+.login-box-msg {
+  text-align: center;
+  padding-top: 20px; }
+
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  display: grid;
+  padding-top: 0px 0px; }
+
+.col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: grid;
+  padding-top: 0px 0px; }
+
+.login-box,
+.register-box {
+  padding-top: 40px; }

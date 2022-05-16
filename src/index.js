@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const hbs = require('express-handlebars');
 const res = require('express/lib/response');
 const app = express();
-const port = 4000;
+const port = 3000;
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
