@@ -8,7 +8,7 @@ const authRouter = require('./auth');
 
 
 function route(app) {
-    app.use('/news', newsRouter);
+    app.use('/login', newsRouter);
   //  app.use('/me', meRouter);
     app.use('/documents', documentsRouter);
     app.use('/user', authRouter);

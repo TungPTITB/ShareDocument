@@ -1,5 +1,5 @@
 
-const { JWT_SECRET }= require('./index');
+const { JWT_SECRET }= require('./env');
 const User = require('../models/User');
 const {signupValidation, loginValidation } = require('./validation');
 const jwt = require('jsonwebtoken');
@@ -24,7 +24,8 @@ class AuthController {
 
         // CREATE A NEW USER
         const user = User({
-            name : req.body.name,
+            fullname : req.body.fullname,
+            username : req.body.username,
             email: req.body.email,
             password: hashPassword 
         });
@@ -36,8 +37,12 @@ class AuthController {
         }
 
     }
-    
 
+    // hiển thị giao diện login
+    login(req, res) {
+        res.render('login');
+    }
+    
    // LOG_IN
     async logIn(req, res){
 

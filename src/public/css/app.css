@@ -122,4 +122,5 @@ nav {
 
 .login-box,
 .register-box {
-  padding-top: 40px; }
+  padding: 40px 0px 0px 200px;
+  width: 1400px; }
