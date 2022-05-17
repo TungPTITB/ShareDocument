@@ -5,7 +5,7 @@ async function connect() {
         await mongoose.connect('mongodb://localhost:27017/the_first_project', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-       //     useCreateIndex: true,
+           // useCreateIndex: true
         });
         console.log('Connect successfully!!!');
     } catch (error) {

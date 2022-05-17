@@ -9,10 +9,9 @@ const authRouter = require('./auth');
 
 function route(app) {
     app.use('/login', newsRouter);
-  //  app.use('/me', meRouter);
     app.use('/documents', documentsRouter);
-    app.use('/user', authRouter);
-    app.use('/', siteRouter);
+    app.use('/home', siteRouter);
+    app.use('/', authRouter);
 }
 
 module.exports = route;
