@@ -3,9 +3,28 @@ const { mutipleMongooseToObject } = require('../../util/mongoose');
 
 class SiteController {
     // [GET] 
-    home(req, res,next ) {
+    showHome(req, res,next ) {
       res.render('home');
     }
+
+    showUser(req, res,next ) {
+        res.render('user');
+      }
+
+      showAdmin(req, res, next ) {
+        res.render('admin');
+      }
+
+      showIntro(req, res,next ) {
+        res.render('intro');
+      }
+
+      showSlug(req, res,next ) {
+        res.render('document');
+      }
+
+    
+    
 
     // [GET] /search
     search(req, res) {

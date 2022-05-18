@@ -1,5 +1,4 @@
 <!-- Theme style -->
-</head>
 
 <!--------------------------------------------------------------------------------------------->
 
@@ -7,16 +6,15 @@
 
   <div class="register-box">
     <div class="register-logo">
-      <a href="#"></a>
     </div>
 
     <div class="card col-md-5">
       <div class="card-body register-card-body">
-        <p class="login-box-msg">ĐĂNG KÍ TÀI KHOẢN</p>
+        <p class="register-box-msg">ĐĂNG KÍ TÀI KHOẢN</p>
 
-        <form action="register" name="frm2" enctype="multipart/form-data" method="POST">
+        <form action="register" name="frm2"  method="POST">
           <div class="input-group mb-3">
-            <input name="fullname" type="text"  class="form-control" placeholder="Full name">
+            <input id="fullname" name="fullname" type="text"  class="form-control" placeholder="Full name" required>
             <!--tên hiển thị-->
             <div class="input-group-append">
               <div class="input-group-text">
@@ -26,7 +24,7 @@
           </div>
 
           <div class="input-group mb-3">
-            <input name="username" type="text" class="form-control" placeholder="Username">
+            <input id="username" name="username" type="text" class="form-control" placeholder="Username" required>
             <!--tên đăng nhập-->
             <div class="input-group-append">
               <div class="input-group-text">
@@ -36,7 +34,7 @@
           </div>
 
           <div class="input-group mb-3">
-            <input name="email" type="email" class="form-control" placeholder="Email">
+            <input id="email" name="email" type="email" class="form-control" placeholder="Email" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -45,7 +43,7 @@
           </div>
 
           <div class="input-group mb-3">
-            <input name="password" type="password" class="form-control" placeholder="Password">
+            <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>

@@ -1,9 +1,10 @@
 
 const { JWT_SECRET }= require('./env');
 const User = require('../models/User');
-//const {signupValidation, loginValidation } = require('./validation');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { find } = require('../models/User');
+const {signupValidation, loginValidation } = require('./validation');
 
 
 class AuthController {
@@ -14,56 +15,80 @@ class AuthController {
         res.render('register');
     }
 
-     //SIGN_UP
-    async regisTer(req, res){ 
-       // try {
-      //  LETS VALIDATE THE DATA BEFORE WE A USER
-        // const { error } = signupValidation(req.body);
-        // if(error) return res.status(400).send(error.details[0].message);
+     //Register POST
+    async regisTer(req, res, next){ 
 
-       // CHECKING IF THE USER ALREADY IN THE DB
-      //  const emailExist = await User.findOne({ email: req.body.email });
-       // if(emailExist) return res.status(400).send('Email already exist');
 
-       // HASH PASSWORD
-      //  const salt = await bcrypt.genSalt(10);
-       // const hashPassword = await bcrypt.hash(req.body.password, salt);
+         // LETS VALIDATE THE DATA BEFORE WE A USER
+         const { error } = signupValidation(req.body);
+         if(error) return res.status(400).send(error.details[0].message);
+        
+           var fullname = req.body.fullname;
+           var username = req.body.username;
+           var email = req.body.email;
+           var password = req.body.password;
 
-      //  CREATE A NEW USER
-    
-        const formData = req.body;
-        const user = new User(formData);
-        user.save()
-            .then(()=> res.redirect('home'))
-            .catch (error => {
+        User.findOne({
+            email : email
+        })
+        .then(data=>{
+            if(data){
+                res.json('Email da ton tai')
+            }else{
+                return User.create({
+                    fullname : fullname,
+                    username : username,
+                    email : email,
+                    password : password
+                })
+                
+            }
+        })
+        .then(data =>{  res.json('Dang ki thanh cong')})
+        .catch(err=>{ return res.status(500).send('Loi server!!!')})
 
-        });
 
     }
 
-    // hiển thị giao diện login
+    // LogIn GET
     login(req, res) {
         res.render('login');
     }
     
-   // LOG_IN
+   // LogIn POST
     async logIn(req, res){
 
-        // LETS VALIDATE THE DATA BEFORE WE A USER
-        // const { error } = loginValidation(req.body);
-        // if(error) return res.status(400).send(error.details[0].message);
 
         // CHECKING IF THE EMAIL EXISTS
         const user = await User.findOne({ email: req.body.email });
         if(!user) return res.status(400).send('Email is not found');
 
         // PASSWORD IS CORRECT
-        const validPass = await bcrypt.compare(req.body.password, user.password);
-        if(!validPass) return res.status(400).send('Invalid Password');
+      //  const validPass = await bcrypt.compare(req.body.password, user.password);
+      //  if(!validPass) return res.status(400).send('Invalid Password');
+
+        var email = req.body.email
+        var  password = req.body.password
+
+     User.findOne({
+         email : email,
+         password : password
+     })
+     .then(data=>{
+         if(data){
+             //res.json('Dang nhap thanh cong');
+             res.redirect('home');
+         }else{
+             res.status(300).send('Sai mat khau !!!');
+         }
+     })
+     .catch(err=>{ res.status(500).send('Co loi ben Server')});
+
+
 
         //CREATE AND ASSIGN A TOKEN
-        const token = jwt.sign({ _id: user._id }, JWT_SECRET);
-        res.header('auth-token', token).json(token);
+        // const token = jwt.sign({ _id: user._id }, JWT_SECRET);
+        // res.header('auth-token', token).json(token);
 
     }
 }
