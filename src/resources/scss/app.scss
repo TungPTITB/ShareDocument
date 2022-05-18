@@ -24,8 +24,8 @@ nav{
   padding: 0px 0px;
 }
 #logo img {
-  max-width: 100px;
-  height:100px;
+  max-width: 70px;
+  height:70px;
   border-radius:50%;
 -moz-border-radius:50%;
 -webkit-border-radius:50%;
@@ -39,28 +39,30 @@ nav{
 #main-menu li a {
   color:aliceblue;
   display: block;
-  padding: 0px 20px;
+  padding: 0px 26px;
   text-decoration: none;
-  line-height: 100px;
+  line-height: 70px;
+  padding-right: 56px;
+  
 
 }
 #main-menu li{
   position: relative;
 }
-.input-group{
-  padding-top :30px;
-}
+
 #main-menu ul.sub-menu {
   position: absolute;
   background-color: rgb(50, 53, 51);
-  padding: 15px 0px;
+  padding: 0px 0px;
   list-style: none;
-  width: 200px;
+  width: 230px;
   border-bottom: 1px solid rgb(50, 53, 51) ;
-  display: none;
+  display:none;
+  
 }
 #main-menu li:hover>ul.sub-menu{
   display: block;
+
 }
 #main-menu ul.sub-menu a{
   padding: 0px 8px;
@@ -74,8 +76,8 @@ nav{
   background-color: rgb(125, 177, 142);
 }
 #main-menu ul.sub-menu ul.sub-menu {
-  left:200px;
-  top:-15px;
+  left:230px;
+  top:0px;
 }
 // thiết lập body khi hover
 #main-menu>li>a{
@@ -88,7 +90,7 @@ nav{
   background-color: rgb(233, 222, 222);
   position: absolute;
   bottom: 0px;
-  left:0px;
+  left:-12px;
   
 
 }
@@ -110,17 +112,28 @@ nav{
   border-radius: 0.25rem;
 }
 
-.login-box-msg {
-  text-align: center;
-  padding-top: 20px;
-}
+// .login-box-msg {
+//   text-align: center;
+//   padding-top: 10px;
 
+// }
+// .input-group2{
+//   padding-top: 15px;
+//   padding-right: 0px;
+// }
+.input-group{
+  padding-top: 15px;
+  padding-right: 0px;
+}
 .btn-primary {
   color: #fff;
   background-color: #0d6efd;
   border-color: #0d6efd;
   display: grid;
   padding-top: 0px 0px ;
+}
+.input-search {
+  padding-right: 30px;
 }
 
 .col-12 {
@@ -130,11 +143,13 @@ nav{
   padding-top: 0px 0px ;
 }
 
+
 .login-box,
 .register-box {
-padding: 40px 0px 0px 200px  ;
-width: 1400px;
+padding-top:60px;
+  text-align: -webkit-center;
  }
+
 
 
 
