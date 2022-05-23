@@ -1,13 +1,127 @@
+{{!-- header --}}
+<div id="wrapper">
+  <div id="header">
+<nav class="container">
+  <a href="" id="logo">
+    <img src="../img/logo6.jpg" alt=""></a>
+    
+  <ul id="main-menu">
+      <li> <a href="">DANH MỤC </a>
+      <ul class="sub-menu">
+        <li><a href="">Công nghệ thông tin</a>
+        <ul class="sub-menu">
+        <li><a href="/documents/menu">Năm 1</a></li>
+        <li><a href="">Năm 2</a></li>
+        <li><a href="">Năm 3</a></li>
+        <li><a href="">Năm 4</a></li>
+      </ul>
+      </li>
+        
+        <li><a href="">Kĩ thuật điện tử truyền thông</a>
+        <ul class="sub-menu">
+        <li><a href="">Năm 1</a></li>
+        <li><a href="/documents/menu">Năm 2</a></li>
+        <li><a href="">Năm 3</a></li>
+        <li><a href="">Năm 4</a></li>
+      </ul>
+        </li>
+        <li><a href="">Điện Điện tử</a>
+        <ul class="sub-menu">
+        <li><a href="">Năm 1</a></li>
+        <li><a href="">Năm 2</a></li>
+        <li><a href="">Năm 3</a></li>
+        <li><a href="">Năm 4</a></li>
+      </ul>
+      </li>
+        <li><a href="">An toàn thông tin</a>
+        <ul class="sub-menu">
+        <li><a href="">Năm 1</a></li>
+        <li><a href="">Năm 2</a></li>
+        <li><a href="">Năm 3</a></li>
+        <li><a href="">Năm 4</a></li>
+      </ul>
+      </li>
+        {{!-- <li><a href="">Menu 2.5</a></li> --}}
+      </ul>
+      {{!-- </li> --}}
+      <li>
+<div class="input-group input-search">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+  <button type="button" class="btn btn-outline-primary">Search</button>
+</div>
+      </li>
+      <li><a href="/home/intro">GIỚI THIỆU</a></li>
+      <li><a href="/home/:userId">TÀI KHOẢN</a></li> 
+    </ul>
+</nav>
+  </div>
+</div> 
+</div>
+
+
+
+{{!-- thân --}}
 <div class="mt-4">
     <div class="row">
         <div class="col-lg-3">
-            <a href="{{document.lynk}}">  <button class="button-menu"> Tải tài liệu về</button> </a>
+            <a href="{{document.document_id}}">  <button class="button-menu"> Tải tài liệu về</button> </a>
            
         </div>
         <div class="col-lg-9">
             <h1>{{document.name}} </h1>
-            <iframe src="https://drive.google.com/file/d/1BhqmpjaKAke_p0S6xDHyjVF3MmBDLvot/preview" width="640" height="480" allow="autoplay"></iframe>
+            <iframe src="https://drive.google.com/file/d/{{document.lynk}}/preview" width="1000" height="1000" allow="autoplay"></iframe>
         <p>{{document.description}}</p>
         </div>
     </div>
 </div>
+
+
+
+{{!-- 
+footer --}}
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    ©2022 
+    <a class="text-white" href="">group03.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>

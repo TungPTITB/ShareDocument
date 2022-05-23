@@ -11,7 +11,7 @@ const Document = new Schema(
       lynk: { type: String, maxLength:255 },
       nganh: { type: String, maxLength:255 },
       nam: { type: String, maxLength:255 },
-      
+      document_id: { type: String, maxLength:255 },
     }
 );
 
