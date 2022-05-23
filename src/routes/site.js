@@ -13,7 +13,7 @@ const siteController = require('../app/controllers/SiteController');
 // router.get('/menu/:slug', siteController.showSlug);
 router.get('/search', siteController.search);
 router.get('/intro', siteController.showIntro);
-router.get('/admin', siteController.showAdmin);
+router.get('/menu', siteController.showMenu);
 router.get('/:userId', siteController.showUser);
 router.get('/', siteController.showHome);
 

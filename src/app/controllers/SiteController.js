@@ -10,8 +10,8 @@ class SiteController {
         res.render('user');
       }
 
-      showAdmin(req, res, next ) {
-        res.render('admin');
+      showMenu(req, res, next ) {
+        res.render('menu');
       }
 
       showIntro(req, res,next ) {
@@ -31,6 +31,15 @@ class SiteController {
         })
         .catch(next);
      }   
+     showHome(req,res,next){
+        Document.find({})
+        .then(documents =>{
+            
+            res.render('home',{ 
+                documents: mutipleMongooseToObject(documents)});
+        })
+        .catch(next);
+     }  
     // [GET] /search
     search(req, res) {
         res.render('search');
