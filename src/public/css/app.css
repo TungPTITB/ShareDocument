@@ -52,10 +52,12 @@ nav {
   list-style: none;
   width: 230px;
   border-bottom: 1px solid #323533;
-  display: none; }
+  display: none;
+  z-index: 2; }
 
 #main-menu li:hover > ul.sub-menu {
-  display: block; }
+  display: block;
+  z-index: 2; }
 
 #main-menu ul.sub-menu a {
   padding: 0px 8px;
@@ -138,7 +140,6 @@ nav {
   border: 0.5px solid #333;
   background: #b5d2ff;
   border-radius: 10px;
-  margin: auto;
   font-family: cursive; }
 
 .box2 {
@@ -213,3 +214,14 @@ nav {
   width: 200px;
   height: 238px;
   flex: 1; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  margin: 0px; }
+
+.card-document {
+  margin-top: 15px; }
+
+.card-css-home {
+  z-index: 1; }

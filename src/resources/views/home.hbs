@@ -1,4 +1,4 @@
-<body>
+
 <div id="wrapper">
   <div id="header">
 <nav class="container">
@@ -55,71 +55,37 @@
     </ul>
 </nav>
   </div>
-
-</div>
-{{!-- Thân --}}
-<div class="box">
- <div class="box1">
-   <p>Tài Liệu Phổ Biến</p>
- </div >
- <div class="box2 ">
- <div class="box3 tl1">
-   <a href="">Giải tích 1</a>
- </div>
- <div class="box3 tl2">
-   <a href=""></a>
- </div>
- <div class="box3 tl3">
-   <a href=""></a>
- </div>
- <div class="box3 tl4">
-   <a href=""></a>
- </div>
-
-</div>
-</div>
-
-<div class="box">
- <div class="box1">
-   <p>Tài Liệu Chung</p>
- </div >
- <div class="box2 ">
- <div class="box3 tl5">
-   <a href=""></a>
- </div>
- <div class="box3 tl6">
-   <a href=""></a>
- </div>
- <div class="box3 tl7">
-   <a href=""></a>
- </div>
- <div class="box3 tl8">
-   <a href=""></a>
- </div>
-</div>
+</div> 
 </div>
 
 
+{{!-- home --}}
+
+<div class="mt-4">
+  <div class="row">
+
+    {{#each documents}}
+     <div class="col-sm-6 col-lg-4">
+      <div class="card card-document card-css-home ">
+       
+         <img src="{{this.image}}" class="card-img-top" alt="{{this.name }}">
+        
+ 
+  <div class="card-body">
+   
+    <h5 class="card-title">{{this.name }}</h5>
+   
+    <p class="card-text">{{this.description }}</p>
+    <a href="#" class="btn btn-primary">Xem tài liệu</a>
+  </div>
+</div>
+    </div>
+    {{/each}}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
+</div>
 
 
 
@@ -135,11 +101,9 @@
 
 {{!-- 
 footer  --}}
-<div class="test">
-<footer class="bg-dark text-center text-white ">
-
+<footer class="bg-dark text-center text-white">
   <!-- Grid container -->
-  <div class="container p-4 pb-0" style="height: 70px;">
+  <div class="container p-4 pb-0">
     <!-- Section: Social media -->
     <section class="mb-4">
       <!-- Facebook -->
@@ -177,12 +141,10 @@ footer  --}}
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); height: 50px; ">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     ©2022 
     <a class="text-white" href="">group03.com</a>
   </div>
   <!-- Copyright -->
 </footer>
-</div>
-</body> 
-
+        

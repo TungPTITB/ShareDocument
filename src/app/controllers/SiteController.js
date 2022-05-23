@@ -1,11 +1,10 @@
 const Course = require('../models/Course');
+const Document = require('../models/Document');
 const { mutipleMongooseToObject } = require('../../util/mongoose');
 
 class SiteController {
     // [GET] 
-    showHome(req, res,next ) {
-      res.render('home');
-    }
+    
 
     showUser(req, res,next ) {
         res.render('user');
@@ -23,7 +22,15 @@ class SiteController {
         res.render('document');
       }
 
-    
+    showHome(req,res,next){
+        Document.find({})
+        .then(documents =>{
+            
+            res.render('home',{ 
+                documents: mutipleMongooseToObject(documents)});
+        })
+        .catch(next);
+     }   
     // [GET] /search
     search(req, res) {
         res.render('search');
