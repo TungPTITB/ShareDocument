@@ -10,7 +10,7 @@ const siteController = require('../app/controllers/SiteController');
 // router.patch('/:courseId', siteController.up);
 
 
-router.get('/menu/:slug', siteController.showSlug);
+// router.get('/menu/:slug', siteController.showSlug);
 router.get('/search', siteController.search);
 router.get('/intro', siteController.showIntro);
 router.get('/admin', siteController.showAdmin);
