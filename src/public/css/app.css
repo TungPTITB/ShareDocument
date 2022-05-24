@@ -285,10 +285,13 @@ section.mb-4 {
 
 .button-menu {
   margin-left: 120px;
-  margin-top: 100px; }
+  margin-top: 100px;
+  background-color: #323533;
+  border-radius: 9%;
+  color: aliceblue; }
 
 .button-menu:hover {
-  background-color: #2d4a66; }
+  background-color: #427eb7; }
 
 .card-text-33333 {
   font-size: 1.5rem;
