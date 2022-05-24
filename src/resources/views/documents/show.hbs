@@ -2,14 +2,14 @@
 <div id="wrapper">
   <div id="header">
 <nav class="container">
-  <a href="" id="logo">
+  <a href="/home" id="logo">
     <img src="../img/logo6.jpg" alt=""></a>
     
   <ul id="main-menu">
       <li> <a href="/home">TRANG CHỦ </a>
       <li> <a href="">DANH MỤC </a>
       <ul class="sub-menu">
-        <li><a href="">Công nghệ thông tin</a>
+        <li><a href="">Công Nghệ Thông Tin</a>
         <ul class="sub-menu">
         <li><a href="/documents/menu">Năm 1</a></li>
         <li><a href="">Năm 2</a></li>
@@ -18,7 +18,7 @@
       </ul>
       </li>
         
-        <li><a href="">Kĩ thuật điện tử truyền thông</a>
+        <li><a href="">Điện Tử Viễn Thông</a>
         <ul class="sub-menu">
         <li><a href="">Năm 1</a></li>
         <li><a href="/documents/menu">Năm 2</a></li>
@@ -26,7 +26,7 @@
         <li><a href="">Năm 4</a></li>
       </ul>
         </li>
-        <li><a href="">Điện Điện tử</a>
+        <li><a href="">Điện_Điện Tử</a>
         <ul class="sub-menu">
         <li><a href="">Năm 1</a></li>
         <li><a href="">Năm 2</a></li>
@@ -34,7 +34,7 @@
         <li><a href="">Năm 4</a></li>
       </ul>
       </li>
-        <li><a href="">An toàn thông tin</a>
+        <li><a href="">An Toàn Thông Tin</a>
         <ul class="sub-menu">
         <li><a href="">Năm 1</a></li>
         <li><a href="">Năm 2</a></li>
@@ -65,13 +65,21 @@
 <div class="mt-4">
     <div class="row">
         <div class="col-lg-3">
+           <ul class="list-group">
+  <li class="list-group-item active">Chủ Đề Liên Quan</li>
+  <a href=""> <li class="list-group-item">Công Nghệ Thông Tin </li></a>
+  <a href=""> <li class="list-group-item">Điện Tử Viễn Thông </li></a>
+  <a href=""> <li class="list-group-item">Điện_Điện Tử </li></a>
+  <a href=""> <li class="list-group-item">An Toàn Thông Tin </li></a>
+</ul>
+
             <a href="{{document.document_id}}">  <button class="button-menu"> Tải tài liệu về</button> </a>
            
         </div>
         <div class="col-lg-9">
             <h1>{{document.name}} </h1>
             <iframe src="https://drive.google.com/file/d/{{document.lynk}}/preview" width="1000" height="1000" allow="autoplay"></iframe>
-        <p>{{document.description}}</p>
+        <p class="card-text-33333">{{document.description}}</p>
         </div>
     </div>
 </div>

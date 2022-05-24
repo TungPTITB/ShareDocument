@@ -2,14 +2,14 @@
 <div id="wrapper">
   <div id="header">
 <nav class="container">
-  <a href="" id="logo">
+  <a href="/home" id="logo">
     <img src="../img/logo6.jpg" alt=""></a>
     
   <ul id="main-menu">
       <li> <a href="/home">TRANG CHỦ </a>
       <li> <a href="">DANH MỤC </a>
       <ul class="sub-menu">
-        <li><a href="">Công nghệ thông tin</a>
+        <li><a href="">Công Nghệ Thông Tin</a>
         <ul class="sub-menu">
         <li><a href="/documents/menu">Năm 1</a></li>
         <li><a href="">Năm 2</a></li>
@@ -18,7 +18,7 @@
       </ul>
       </li>
         
-        <li><a href="">Kĩ thuật điện tử truyền thông</a>
+        <li><a href=""> Điện Tử Truyền Thông</a>
         <ul class="sub-menu">
         <li><a href="">Năm 1</a></li>
         <li><a href="/documents/menu">Năm 2</a></li>
@@ -26,7 +26,7 @@
         <li><a href="">Năm 4</a></li>
       </ul>
         </li>
-        <li><a href="">Điện Điện tử</a>
+        <li><a href="">Điện_Điện Tử</a>
         <ul class="sub-menu">
         <li><a href="">Năm 1</a></li>
         <li><a href="">Năm 2</a></li>
@@ -34,7 +34,7 @@
         <li><a href="">Năm 4</a></li>
       </ul>
       </li>
-        <li><a href="">An toàn thông tin</a>
+        <li><a href="">An Toàn Thông Tin</a>
         <ul class="sub-menu">
         <li><a href="">Năm 1</a></li>
         <li><a href="">Năm 2</a></li>
@@ -56,37 +56,41 @@
     </ul>
 </nav>
   </div>
-</div> 
+
+  <div id="slider-background">
+                  <img src="../img/backgroud.jpg" alt=""></a>
+
 </div>
+</div> 
+
 
 
 {{!-- home --}}
 
+    
+<p class="cssbuathoi">Tài liệu Phổ Biến</p>
 <div class="mt-4">
   <div class="row">
 
     {{#each documents}}
-     <div class="col-sm-6 col-lg-4">
+     <div class="col-sm-6 col-md-3">
       <div class="card card-document card-css-home ">
        <a href="/documents/{{this.slug}}">
          <img src="{{this.image}}" class="card-img-top" alt="{{this.name }}">
        </a>
-       
-        
+            
  
   <div class="card-body">
    <a href="/documents/{{this.slug}}">
    <h5 class="card-title">{{this.name }}</h5>
     </a>
     <p class="card-text">{{this.description }}</p>
-    <a href="#" class="btn btn-primary">Xem tài liệu</a>
+    <a href="/documents/{{this.slug}}" class="btn btn-primary">Xem tài liệu</a>
   </div>
 </div>
     </div>
+    
     {{/each}}
-
-
-
   </div>
 </div>
 
@@ -108,7 +112,7 @@ footer  --}}
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
-    <section class="mb-4">
+    <section class="mb-4   icon-footer">
       <!-- Facebook -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
         ><i class="fab fa-facebook-f"></i
