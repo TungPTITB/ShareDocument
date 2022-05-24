@@ -1,96 +1,113 @@
-
-const { JWT_SECRET }= require('./env');
-const User = require('../models/User');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-const { find } = require('../models/User');
-const {signupValidation, loginValidation } = require('./validation');
+const User = require("../models/User");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { JWT_KEY} = require("./env");
+const { verifyTokenAndAdmin } = require("./verifyToken");
 
 
-class AuthController {
+let Tokens = [];
+
+const authController = {
 
 
-    // Register GET
-    register(req, res) {
+  //GET_REGISTER
+  getRegister: (req, res, next)=> {
         res.render('register');
+  }  ,
+  //REGISTER
+  registerUser: async (req, res) => {
+    try {
+
+
+      // CHECKING IF THE USER ALREADY IN THE DB
+        const emailExist = await User.findOne({ email: req.body.email });
+        if(emailExist) return res.status(400).send('Email already exist');
+
+      //HASH_PASSWORD
+      const salt = await bcrypt.genSalt(10);
+      const hashed = await bcrypt.hash(req.body.password, salt);
+
+      //Create new user
+      const newUser = await new User({
+        fullname: req.body.fullname,
+        username: req.body.username,
+        email: req.body.email,
+        password: hashed,
+      });
+
+      //Save user to DB
+      const user = await newUser.save();
+      res.status(200).send('Dang ki thanh cong');
+    } catch (err) {
+      res.status(500).json(err);
     }
+  },
 
-     //Register POST
-    async regisTer(req, res, next){ 
-
-
-         // LETS VALIDATE THE DATA BEFORE WE A USER
-         const { error } = signupValidation(req.body);
-         if(error) return res.status(400).send(error.details[0].message);
-        
-           var fullname = req.body.fullname;
-           var username = req.body.username;
-           var email = req.body.email;
-           var password = req.body.password;
-
-        User.findOne({
-            email : email
-        })
-        .then(data=>{
-            if(data){
-                res.json('Email da ton tai')
-            }else{
-                return User.create({
-                    fullname : fullname,
-                    username : username,
-                    email : email,
-                    password : password
-                })
-                
-            }
-        })
-        .then(data =>{  res.json('Dang ki thanh cong')})
-        .catch(err=>{ return res.status(500).send('Loi server!!!')})
+  generateToken: (user) => {
+    return jwt.sign(
+      {
+        id: user.id,
+        isAdmin : user.isAdmin
+      },
+      JWT_KEY,
+      { expiresIn: "7d" }
+    );
+  },
 
 
+  //GET_LOGIN
+  getLogin : (req, res, next)=>{
+      res.render('login');
+  },
+
+  //LOGIN
+  loginUser: async (req, res) => {
+    try {
+      const user = await User.findOne({ email: req.body.email });
+      if (!user) {
+       return res.status(404).send("Emial không tồn tại");
+      }
+      const validPassword = await bcrypt.compare(
+        req.body.password,
+        user.password
+      );
+      const x =  req.body.password;
+      const y = user.password;
+
+      if (!validPassword && x!=y ) {
+       return res.status(404).send("Mật khẩu không hợp lệ");
+      }
+      if (user && ( validPassword || x==y )  ) {
+      
+        const Token = authController.generateToken(user);
+        Tokens.push(Token);
+        //STORE REFRESH TOKEN IN COOKIE
+        res.cookie("Token", Token, {
+          httpOnly: true,
+          secure:false,
+          path: "/",
+          sameSite: "strict",
+        });
+        if( user.isAdmin == true){
+          return res.redirect('/admin');
+        }else{
+           return res.redirect('/home');
+        }
+       
+      }
+    } catch (err) {
+      res.status(500).json(err);
     }
-
-    // LogIn GET
-    login(req, res) {
-        res.render('login');
-    }
-    
-   // LogIn POST
-    async logIn(req, res){
+  },
 
 
-        // CHECKING IF THE EMAIL EXISTS
-        const user = await User.findOne({ email: req.body.email });
-        if(!user) return res.status(400).send('Email is not found');
+  //LOG OUT
+  logOut: async (req, res) => {
+    //Clear cookies when user logs out
+    Tokens = Tokens.filter((token) => token !== req.body.token);
+    res.clearCookie("Token");
+    res.status(200).send("Logged out successfully!");
+  },
+};
 
-        // PASSWORD IS CORRECT
-      //  const validPass = await bcrypt.compare(req.body.password, user.password);
-      //  if(!validPass) return res.status(400).send('Invalid Password');
-
-        var email = req.body.email
-        var  password = req.body.password
-
-     User.findOne({
-         email : email,
-         password : password
-     })
-     .then(data=>{
-         if(data){
-             //res.json('Dang nhap thanh cong');
-             res.redirect('home');
-         }else{
-             res.status(300).send('Sai mat khau !!!');
-         }
-     })
-     .catch(err=>{ res.status(500).send('Co loi ben Server')});
-
-
-
-        //CREATE AND ASSIGN A TOKEN
-        // const token = jwt.sign({ _id: user._id }, JWT_SECRET);
-        // res.header('auth-token', token).json(token);
-
-    }
-}
-
-module.exports = new AuthController();
+module.exports = authController;

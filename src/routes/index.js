@@ -1,16 +1,16 @@
-const newsRouter = require('./news');
-//const meRouter = require('./me');
+
 const documentsRouter = require('./documents');
 const siteRouter = require('./site');
 const authRouter = require('./auth');
+const { verifyToken } = require("../app/controllers/verifyToken");
 
 
 
 
 function route(app) {
-    app.use('/login', newsRouter);
-    app.use('/documents', documentsRouter);
-    app.use('/home', siteRouter);
+
+    app.use('/documents',verifyToken, documentsRouter);
+    app.use('/home',verifyToken, siteRouter);
     app.use('/', authRouter);
 }
 

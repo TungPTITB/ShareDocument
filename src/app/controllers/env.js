@@ -1,3 +1,3 @@
 module.exports={
-    JWT_SECRET : 'NodejsApiAuthentication'
+    JWT_KEY : 'NodejsApiAuthentication'
 }
