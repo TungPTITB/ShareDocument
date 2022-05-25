@@ -21,7 +21,7 @@
         <li><a href=""> Điện Tử Truyền Thông</a>
         <ul class="sub-menu">
         <li><a href="documents/dtvt/nam1">Năm 1</a></li>
-        <li><a href="documents/dtvt/nam2">Năm 2</a></li>
+        <li><a href="">Năm 2</a></li>
         <li><a href="">Năm 3</a></li>
         <li><a href="">Năm 4</a></li>
       </ul>
@@ -56,42 +56,63 @@
     </ul>
 </nav>
   </div>
+
+  <div id="slider-background">
+                  <img src="../img/backgroud.jpg" alt=""></a>
+
+</div>
 </div> 
 
 
-{{!-- thân --}}
+
+{{!-- home --}}
+
+
+
 <div class="mt-4">
-    <div class="row">
-        <div class="col-lg-3">
-           <ul class="list-group">
-  <li class="list-group-item active">Chủ Đề Liên Quan</li>
-  <a href=""> <li class="list-group-item">Công Nghệ Thông Tin </li></a>
-  <a href=""> <li class="list-group-item">Điện Tử Viễn Thông </li></a>
-  <a href=""> <li class="list-group-item">Điện_Điện Tử </li></a>
-  <a href=""> <li class="list-group-item">An Toàn Thông Tin </li></a>
-</ul>
+  <div class="row">
 
-
-            <a href="{{document.document_id}}">  <button class="button-menu"> Tải tài liệu về</button> </a>
-           
-        </div>
-        <div class="col-lg-9">
-            <h1>{{document.name}} </h1>
-            <iframe src="https://drive.google.com/file/d/{{document.lynk}}/preview" width="1000" height="1000" allow="autoplay"></iframe>
-        <p class="card-text-33333">{{document.description}}</p>
-        </div>
+    {{#each documents}}
+     <div class="col-sm-6 col-md-3">
+      <div class="card card-document card-css-home ">
+       <a href="/documents/{{this.slug}}">
+         <img src="{{this.image}}" class="card-img-top" alt="{{this.name }}">
+       </a>
+            
+ 
+  <div class="card-body">
+   <a href="/documents/{{this.slug}}">
+   <h5 class="card-title">{{this.name }}</h5>
+    </a>
+    <p class="card-text">{{this.description }}</p>
+    <a href="/documents/{{this.slug}}" class="btn btn-primary">Xem tài liệu</a>
+  </div>
+</div>
     </div>
+    
+    {{/each}}
+  </div>
 </div>
 
 
 
+
+
+
+
+
+
+
+
+
+
 {{!-- 
-footer --}}
+footer  --}}
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
-    <section class="mb-4">
+    <section class="mb-4   icon-footer">
       <!-- Facebook -->
       <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
         ><i class="fab fa-facebook-f"></i
@@ -133,3 +154,4 @@ footer --}}
   </div>
   <!-- Copyright -->
 </footer>
+        
