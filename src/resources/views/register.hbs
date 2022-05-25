@@ -1,69 +1,16 @@
-<!-- Theme style -->
-
-<!--------------------------------------------------------------------------------------------->
-
-<body class="  login-background login-box hold-transition login-page" width="100px">
-
-  <div class="register-box ">
-    <div class="register-logo">
+<body>
+    <div class="login " style="  width: 350px; height: 400PX;  border: 1px solid green;border-radius: 10px; text-align: center; background-color: azure; justify-content: space-between; margin: auto; margin-top:150px">
+        <h2 style="color: #161614;font-family: sans-serif; ">
+            ĐĂNG KÝ
+        </h2>
+         <form action="register" name="frm2"  method="POST">
+            <input style=" width: 294px;height: 40px;margin-bottom: 10px; border-radius: 5px;border: 1px solid green; padding-left: 20px;" type="text" placeholder="Fullname" name="fullname" id="'fullname" required>
+            <input style=" width: 294px;height: 40px;margin-bottom: 10px; border-radius: 5px;border: 1px solid green; padding-left: 20px;" type="text" placeholder="Username" name="username" id="username" required>
+            <input style=" width: 294px;height: 40px;margin-bottom: 10px; border-radius: 5px;border: 1px solid green; padding-left: 20px;" type="text" placeholder="Email" name="email" id="email" required>
+            <input  style=" width: 294px;height: 40px;margin-bottom: 10px; border-radius: 5px;border: 1px solid green; padding-left: 20px;" type="password" placeholder="Password" name="password" id="password" required>
+            <button  style="width: 294px;height: 2.5rem;margin-bottom: .625rem; background-color: rgb(45, 35, 196); border-radius: .3125rem; color: white;"><a href="#" class=""  style="text-decoration: none;color:#fbfcf6 ">ĐĂNG KÝ</a></button>
+            <button style="width: 294px;height: 2.5rem;margin-bottom: .625rem; background-color: rgb(45, 35, 196); border-radius: .3125rem;"><a href="/" class=""  style="text-decoration: none;color:#f1f1e8 ">QUAY VỀ LOGIN</a></button>
+         </form>
     </div>
-
-    <div class="card col-md-5">
-      <div class="card-body register-card-body">
-        <p class="register-box-msg">ĐĂNG KÍ TÀI KHOẢN</p>
-
-        <form action="register" name="frm2"  method="POST">
-          <div class="input-group mb-3">
-            <input id="fullname" name="fullname" type="text"  class="form-control" placeholder="Full name" required>
-            <!--tên hiển thị-->
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-user"></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="input-group mb-3">
-            <input id="username" name="username" type="text" class="form-control" placeholder="Username" required>
-            <!--tên đăng nhập-->
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="input-group mb-3">
-            <input id="email" name="email" type="email" class="form-control" placeholder="Email" required>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="input-group mb-3">
-            <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- /.col -->
-          <div class="col-12">
-            <button  type="submit" class="btn btn-primary btn-block">ĐĂNG KÍ</button>
-          </div>
-          <hr>
-
-          <div class="col-12">
-            <a href="/" class="text-center btn btn-primary btn-block">QUAY VỀ LOGIN</a>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  
-
+    
 </body>

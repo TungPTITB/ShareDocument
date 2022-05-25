@@ -3,22 +3,22 @@
 
 #slider-background > img {
   vertical-align: middle;
-  width: 100%;
-  max-width: 100%;
+  width: 110%;
+  max-width: 110%;
   height: 700px; }
 
 .container {
-  width: 1366px;
-  max-width: 64%;
-  margin: 0px 97px; }
+  width: 1245px;
+  max-width: 74%;
+  margin: 0px 0px; }
 
 #header {
   background-color: #323533;
   position: fixed;
   top: 0px;
   z-index: 5;
-  width: 200%;
-  max-width: 131%; }
+  width: 110%;
+  max-width: 110%; }
 
 nav {
   display: flex;
@@ -34,7 +34,7 @@ nav {
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
-  margin-left: 102px; }
+  margin-left: 50px; }
 
 #main-menu {
   display: flex;
@@ -252,15 +252,15 @@ p {
 .cssbuathoi {
   background-color: #323533;
   text-align: center;
-  width: 331px;
+  width: 19%;
   margin-top: 32px;
   line-height: 50px;
   color: aliceblue;
-  margin-left: 13px;
-  margin-top: 90px; }
+  margin-left: 26px;
+  margin-top: 54px; }
 
 section.mb-4 {
-  width: 137%;
+  width: 125%;
   text-align: center; }
 
 .col-lg-9 {
@@ -292,7 +292,7 @@ section.mb-4 {
   border-color: #323533; }
 
 .button-menu {
-  margin-left: 120px;
+  margin-left: 125px;
   margin-top: 100px;
   background-color: #323533;
   border-radius: 9%;
@@ -319,10 +319,38 @@ a.gioithieu {
   margin-left: -153px;
   margin-right: 36px; }
 
-img.card-img-top {
-  width: 329px;
-  height: 329px; }
-
 .m-1 {
   margin: 0.25rem !important;
   width: 45px; }
+
+.col-md-3 {
+  flex: 0 0 auto;
+  width: 18%;
+  margin-left: 8px; }
+
+img.card-img-top {
+  width: 273px;
+  height: 243px; }
+
+.card-css-home {
+  z-index: 1;
+  width: 276px; }
+
+footer.bg-dark.text-center.text-white {
+  width: 110%; }
+
+.csschovui {
+  width: 1476px;
+  max-width: 1476px; }
+
+.row {
+  --bs-gutter-x: 4.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x)); }
+
+.text-center.p-3 {
+  width: 92%; }

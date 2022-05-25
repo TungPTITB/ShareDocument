@@ -12,7 +12,7 @@ const authController = {
 
   //GET_REGISTER
   getRegister: (req, res, next)=> {
-        res.render('register');
+    res.render('register', { layout : false});
   }  ,
   //REGISTER
   registerUser: async (req, res) => {
@@ -57,7 +57,7 @@ const authController = {
 
   //GET_LOGIN
   getLogin : (req, res, next)=>{
-      res.render('login');
+    res.render('login', {layout: false});
   },
 
   //LOGIN

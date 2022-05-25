@@ -34,19 +34,6 @@ class DocumentController {
                 .catch(next); 
     }
 
-
-//get 
-    create(req, res,next ) {
-      res.render('documents/create');
-    }
-//post
-    store(req, res,next ) {
-        const formData = req.body;
-        const document =new Document(formData);
-        document.save();
-         
-        res.send('save');
-      }
 }
 
 
