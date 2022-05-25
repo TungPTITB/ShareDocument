@@ -21,7 +21,7 @@ class SiteController {
       showSlug(req, res,next ) {
         res.render('document');
       }
-
+     
     showHome(req,res,next){
         Document.find({})
         .then(documents =>{
@@ -30,16 +30,9 @@ class SiteController {
                 documents: mutipleMongooseToObject(documents)});
         })
         .catch(next);
+        
      }   
-     showHome(req,res,next){
-        Document.find({})
-        .then(documents =>{
-            
-            res.render('home',{ 
-                documents: mutipleMongooseToObject(documents)});
-        })
-        .catch(next);
-     }  
+    
     // [GET] /search
     search(req, res) {
         res.render('search');
