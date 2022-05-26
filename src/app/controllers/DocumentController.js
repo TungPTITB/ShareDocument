@@ -26,7 +26,7 @@ class DocumentController {
     showcntt(req, res,next ) {
         Document.find({major : "cntt"})
                 .then(documents => {
-                        res.render('documents/showmenunganh', {
+                        res.render('documents/showmen', {
                             documents:mutipleMongooseToObject(documents)
                         });
                     })
@@ -36,7 +36,7 @@ class DocumentController {
     showddt(req, res,next ) {
         Document.find({major : "ddt"})
                 .then(documents => {
-                        res.render('documents/showmenunganh', {
+                        res.render('documents/showmenu', {
                             documents:mutipleMongooseToObject(documents)
                         });
                     })
@@ -45,7 +45,7 @@ class DocumentController {
     showddt1(req, res,next ) {
         Document.find({major : "ddt", year : "1"})
                 .then(documents => {
-                        res.render('documents/showmenunganh', {
+                        res.render('documents/showmenu', {
                             documents:mutipleMongooseToObject(documents)
                         });
                     })
@@ -54,7 +54,7 @@ class DocumentController {
     showddt1(req, res,next ) {
         Document.find({major : "ddt", year : "1"})
                 .then(documents => {
-                        res.render('documents/showmenunganh', {
+                        res.render('documents/showmenu', {
                             documents:mutipleMongooseToObject(documents)
                         });
                     })
@@ -63,7 +63,7 @@ class DocumentController {
     showddt3(req, res,next ) {
         Document.find({major : "ddt", year : "3"})
                 .then(documents => {
-                        res.render('documents/showmenunganh', {
+                        res.render('documents/showmenu', {
                             documents:mutipleMongooseToObject(documents)
                         });
                     })
@@ -72,7 +72,7 @@ class DocumentController {
     showddt4(req, res,next ) {
         Document.find({major : "ddt", year : "4"})
                 .then(documents => {
-                        res.render('documents/showmenunganh', {
+                        res.render('documents/showmenu', {
                             documents:mutipleMongooseToObject(documents)
                         });
                     })
@@ -82,7 +82,7 @@ class DocumentController {
     showattt(req, res,next ) {
         Document.find({major : "attt"})
                 .then(documents => {
-                        res.render('documents/showmenunganh', {
+                        res.render('documents/showmenu', {
                             documents:mutipleMongooseToObject(documents)
                         });
                     })

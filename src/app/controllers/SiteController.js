@@ -34,23 +34,21 @@ class SiteController {
      }   
     
     // [GET] /search
-    async search(req, res) {
-        try {
-            const features = new APIfeatures(Document.find(), req.query)
-            .paginating().sorting().searching().filtering()
-      
-            const result = await Promise.allSettled([
-              features.query,
-              Products.countDocuments() //count number of products.
-            ])
-            
-            const products = result[0].status === 'fulfilled' ? result[0].value : [];
-            const count = result[1].status === 'fulfilled' ? result[1].value : 0;
-      
-            return res.status(200).json({products, count})
-          } catch (err) {
-            return res.status(500).json({msg: err.message})
-          }
+    search(req, res, next) {
+         //let Document = [];
+        var keyword = req.query.key; 
+        Document.find({"$or":[
+                  { "slug": {$regex : keyword}},
+                  { "name": {$regex : new RegExp(keyword, 'i')}},
+                  { "major": {$regex : keyword}}
+               ]})
+        .then(documents => {
+                res.render('documents/showmenu', {
+                    documents:mutipleMongooseToObject(documents)
+                });
+            })
+        .catch(next);  
+        
     }
     //POST
     async add(req, res, next){

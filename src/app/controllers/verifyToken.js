@@ -1,6 +1,7 @@
 
 const { JWT_KEY }= require('./env');
 const jwt = require("jsonwebtoken");
+const { options } = require('../../routes/site');
 
 const verifyToken = (req, res, next) => {
   
@@ -27,6 +28,7 @@ const verifyTokenAndAdmin = (req, res, next) => {
     }
   });
 };
+
 
 module.exports = {
   verifyToken,
