@@ -45,7 +45,9 @@
     "nodemon": "^2.0.16",
     "passport": "^0.5.3",
     "prettier": "^2.6.2",
+    "query-string": "^7.1.1",
     "tslib": "^2.4.0",
+    "use-query-params": "^1.2.3",
     "uuid": "^8.3.2"
   },
   "description": ""

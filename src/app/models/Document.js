@@ -13,9 +13,12 @@ const Document = new Schema(
       major: { type: String, maxLength : 255},
       year : { type: Number}
        
-    }
+    },{
+      timestamps: true,
+  },
 );
-
+Document.index({name: 'text'});
+Document.createIndexes({name: 'text'});
 
 
 module.exports = mongoose.model('Document', Document);

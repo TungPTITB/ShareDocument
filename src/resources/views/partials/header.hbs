@@ -9,21 +9,21 @@
       <li> <a href="/home">TRANG CHỦ </a>
       <li> <a href="">DANH MỤC </a>
       <ul class="sub-menu">
-        <li><a href="">Công Nghệ Thông Tin</a>
+        <li><a href="/documents/cntt">Công Nghệ Thông Tin</a>
         <ul class="sub-menu">
         <li><a href="/documents/cntt/nam1">Năm 1</a></li>
-        <li><a href="">Năm 2</a></li>
-        <li><a href="">Năm 3</a></li>
-        <li><a href="">Năm 4</a></li>
+        <li><a href="/documents/cntt/nam2">Năm 2</a></li>
+        <li><a href="/documents/cntt/nam3">Năm 3</a></li>
+        <li><a href="/documents/cntt/nam4">Năm 4</a></li>
       </ul>
       </li>
         
-        <li><a href=""> Điện Tử Truyền Thông</a>
+        <li><a href="/documents/dtvt"> Điện Tử Viễn Thông</a>
         <ul class="sub-menu">
         <li><a href="/documents/dtvt/nam1">Năm 1</a></li>
-        <li><a href="">Năm 2</a></li>
-        <li><a href="">Năm 3</a></li>
-        <li><a href="">Năm 4</a></li>
+        <li><a href="/documents/dtvt/nam2">Năm 2</a></li>
+        <li><a href="/documents/dtvt/nam3">Năm 3</a></li>
+        <li><a href="/documents/dtvt/nam4">Năm 4</a></li>
       </ul>
         </li>
         <li><a href="">Điện_Điện Tử</a>
@@ -47,8 +47,10 @@
       {{!-- </li> --}}
       <li>
 <div class="input-group input-search">
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-  <button type="button" class="btn btn-outline-primary">Search</button>
+    <form action="/home/search" method="GET">
+      <input type="text" name="name" id="name" class="form-control rounded" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" >
+      <button type="submit" class="btn btn-outline-primary">Search</button>
+    </form>
 </div>
       </li>
       <li><a class="gioithieu1" href="/home/intro">GIỚI THIỆU</a></li>
