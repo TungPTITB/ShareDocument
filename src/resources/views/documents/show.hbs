@@ -1,29 +1,42 @@
 
 
 
-{{!-- thân --}}
-<div class="csschovui">
-<div class="mt-4">
-    <div class="row">
-        <div class="col-lg-3">
-           <ul class="list-group">
-  <li class="list-group-item active">Chủ Đề Liên Quan</li>
-  <a href="/cntt"> <li class="list-group-item">Công Nghệ Thông Tin </li></a>
-  <a href="/dtvt"> <li class="list-group-item">Điện Tử Viễn Thông </li></a>
-  <a href="/diendientu"> <li class="list-group-item">Điện_Điện Tử </li></a>
-  <a href="/antoanthongtin"> <li class="list-group-item">An Toàn Thông Tin </li></a>
-</ul>
+{{!-- home --}}
 
+<div class="csschovui" >
+<div class="mt-6">
+  <div class="row">
 
-            <a href="{{document.document_id}}">  <button class="button-menu"> Tải tài liệu về</button> </a>
-           
-        </div>
-        <div class="col-lg-9">
-            <h1>{{document.name}} </h1>
-            <iframe src="https://drive.google.com/file/d/{{document.lynk}}/preview" width="1000" height="1000" allow="autoplay"></iframe>
-        <p class="card-text-33333">{{document.description}}</p>
-        </div>
+    {{#each users}}
+     <div class="col-sm-6 col-md-3">
+      <div class="card card-document card-css-home ">
+       <a href="/documents/{{this.fullname}}">
+         <img src="{{this.fullname}}" class="card-img-top" alt="{{this.fullname }}">
+       </a>
+            
+ 
+  <div class="card-body">
+   <a href="/documents/{{this.fullname}}">
+   <h5 class="card-title">{{this.username }}</h5>
+    </a>
+    <p class="card-text">{{this.description }}</p>
+    <a href="/documents/{{this.username}}" class="btn btn-primary">Xem tài liệu</a>
+  </div>
+</div>
     </div>
+    
+    {{/each}}
+  </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 

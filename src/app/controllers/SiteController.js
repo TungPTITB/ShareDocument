@@ -1,14 +1,56 @@
-const Course = require('../models/Course');
+const User = require('../models/User');
 const Document = require('../models/Document');
-const { mutipleMongooseToObject } = require('../../util/mongoose');
+const { mutipleMongooseToObject, mongooseToObject } = require('../../util/mongoose');
+const { JWT_KEY }= require('./env');
+const jwt = require("jsonwebtoken");
 
 class SiteController {
     // [GET] 
     
 
+    // showUser(req, res,next ) {
+    //     const user_id = req.params.userId ;
+    //     User.findById({ user_id })
+    //     .then(users =>{
+            
+    //         res.render('documents/showmenu',{ 
+    //             users: mutipleMongooseToObject(users)});
+    //     })
+    //     .catch(next);
+    //   }
+
+    // async showUser (req, res){
+    //     try {
+            
+    //         const userId = req.params.userId;
+    //         const user = await User.findById(userId);
+    //         res.render('documents/show',{ users: mongooseToObject(user)});
+    //     } catch (err) {
+    //         res.json({massage : err});
+    //     }
+    // }
     showUser(req, res,next ) {
-        res.render('user');
-      }
+        const Token = req.cookies.Token;
+        if (Token) {
+          jwt.verify(Token, JWT_KEY, (err, user) => {
+            if (err) {
+              return res.redirect('/');
+            }
+            req.user = user;
+            const user_id = user.id ;
+            User.find({ _id: user_id })
+            .then(users =>{
+                
+                res.render('documents/show',{ 
+                    users: mutipleMongooseToObject(users)});
+            })
+            .catch(next);
+            
+          });
+        } else {
+          res.redirect('/');
+        }
+}
 
       showMenu(req, res, next ) {
         res.render('menu');

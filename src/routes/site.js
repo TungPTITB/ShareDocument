@@ -14,7 +14,7 @@ const siteController = require('../app/controllers/SiteController');
 router.get('/search', siteController.search);
 router.get('/intro', siteController.showIntro);
 router.get('/menu', siteController.showMenu);
-router.get('/:userId', siteController.showUser);
+router.get('/myprofile', siteController.showUser);
 router.get('/', siteController.showHome);
 
 
