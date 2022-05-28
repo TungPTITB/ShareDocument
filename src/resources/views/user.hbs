@@ -1,0 +1,116 @@
+<p class="cssbuachovui"></p>
+{{#each users}}
+<style>
+    .form-control {
+        display: block;
+        width: 338px;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        margin-left: 28px;
+    }
+
+    label {
+        background-color: rgb(184 194 203);
+        display: inline-block;
+        width: 338px;
+        line-height: 38px;
+        border: 1px solid #ced4da;
+        appearance: none;
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        margin-left: 28px;
+    }
+
+    .h3,
+    h3 {
+        font-size: 1.75rem;
+        margin-left: 66px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .csschodochan {
+        position: relative;
+        background-color: rgb(182, 199, 199);
+        border: 1px solid #ced4da;
+        appearance: none;
+        border-radius: 3.25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        width: 399px;
+        margin-left: 526px;
+        height: 484px;
+        margin-top: -403px;
+    }
+
+    button.btn.btn-primary.suathongtin {
+        position: absolute;
+        margin: 10px 0px 0px 132px;
+
+    }
+
+    button.btn.btn-primary.dangxuat {
+        margin: 55px 133px;
+        width: 126px;
+    }
+
+    .cssbuachovui {
+        margin-top: -411px;
+        position: absolute;
+    }
+
+    .footer-css {
+        margin-top: 1.5rem !important;
+        margin-bottom: 56px;
+    }
+
+    footer.bg-dark.text-center.text-white {
+        width: 120%;
+    }
+
+    .container {
+        width: 1245px;
+        max-width: 85%;
+        margin: 0px 0px;
+        padding: 0px;
+    }
+</style>
+<div class="mt-4 footer-css">
+    <div class="csschodochan">
+        <h3>Thông Tin Tài Khoản</h3>
+        <form  action="/home/myprofile" method="PATCH" >
+            <input type="hidden" name="id" value="{{this._id}}">
+            <div class="form-name">
+                <label for="name">Fullname : {{this.fullname}}</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Edit fullname.....">
+            </div>
+            <div class="form-username">
+                <label for="username"> Username : {{this.username}}</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Edit username.....">
+            </div>
+            <div class="form-email">
+                <label for="email">Email : {{this.email}}</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Edit email.....">
+            </div>
+            <div class="form-password">
+                <label for="password"> Password :</label>
+                <input type="text" class="form-control" id="password" name="password" placeholder="Edit password.....">
+            </div>
+            <button type="submit" class="btn btn-primary suathongtin "> Sửa Thông Tin </button>
+            
+        </form>
+        <button  class="btn btn-primary dangxuat "><a href="/logout"> Đăng Xuất</a> </button>
+    </div>
+   
+
+    {{/each}}

@@ -102,11 +102,11 @@ const authController = {
 
 
   //LOG OUT
-  logOut: async (req, res) => {
+  logOut(req, res){
     //Clear cookies when user logs out
     Tokens = Tokens.filter((token) => token !== req.body.token);
     res.clearCookie("Token");
-    res.status(200).send("Logged out successfully!");
+    res.redirect('/');
   },
 };
 

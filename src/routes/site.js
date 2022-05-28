@@ -15,6 +15,8 @@ router.get('/search', siteController.search);
 router.get('/intro', siteController.showIntro);
 router.get('/menu', siteController.showMenu);
 router.get('/myprofile', siteController.showUser);
+router.patch('/myprofile', siteController.updateUser);
+
 router.get('/', siteController.showHome);
 
 
