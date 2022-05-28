@@ -3,12 +3,20 @@ const Document = require('../models/Document');
 const { mutipleMongooseToObject } = require('../../util/mongoose');
 const { JWT_KEY }= require('./env');
 const jwt = require("jsonwebtoken");
+const {updateValidation} = require('./validation');
 
 class SiteController {
     // [GET] 
     
 
-    updateUser(req, res, next){
+    async updateUser(req, res, next){
+
+            // LETS VALIDATE THE DATA BEFORE WE A USER
+        const { error } = updateValidation(req.body);
+        if(error) return res.status(400).send(error.details[0].message);
+
+        const emailExist = await User.findOne({ email: req.body.email });
+        if(emailExist) return res.status(400).send('Email already exist');
         
         const Token = req.cookies.Token;
         if (Token) {
@@ -20,9 +28,9 @@ class SiteController {
             const user_id = user.id ;
             User.updateOne(
                 { _id : user_id },
-                { $set: {    fullname: req.body.fullname, username: req.body.username,email: req.body.email, password: req.body.password}}
+                { $set: {  fullname: req.body.fullname, username: req.body.username,email: req.body.email, password: req.body.password}}
             )
-            .then(res.redirect('/home'))
+            .then(res.redirect('/home/myprofile'))
             .catch(next);
             
           });

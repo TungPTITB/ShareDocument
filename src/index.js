@@ -8,9 +8,10 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const methodOverride = require('method-override');
 const { verifyTokenAndAdmin } = require("./app/controllers/verifyToken");
 
-
+app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(cors());
 app.use(bodyParser.json());

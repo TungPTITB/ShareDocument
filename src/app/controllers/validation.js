@@ -1,20 +1,16 @@
 const Joi =require('@hapi/joi');
 
-const signupValidation = data =>{
+const updateValidation = data =>{
     const schema = Joi.object({
         fullname: Joi.string()
-            .min(2)
-            .required(),
+            .min(5),
         username: Joi.string()
-            .min(2)
-            .required(),
+            .min(2),
         email: Joi.string()
             .min(15)
-            .required()
             .email(),
         password: Joi.string()
-            .min(6)
-            .required()
+            .min(6),
     });
     return schema.validate(data);
 }
@@ -32,5 +28,5 @@ const loginValidation = data =>{
     return schema.validate(data);
 }
 
-module.exports.signupValidation = signupValidation;
+module.exports.updateValidation = updateValidation;
 module.exports.loginValidation = loginValidation;

@@ -88,11 +88,11 @@
 <div class="mt-4 footer-css">
     <div class="csschodochan">
         <h3>Thông Tin Tài Khoản</h3>
-        <form  action="/home/myprofile" method="PATCH" >
-            <input type="hidden" name="id" value="{{this._id}}">
+        <form  action="/home/myprofile?_method=PATCH" method="POST" >
+            {{!-- <input type="hidden" name="id" value="{{this._id}}"> --}}
             <div class="form-name">
-                <label for="name">Fullname : {{this.fullname}}</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Edit fullname.....">
+                <label for="fullname">Fullname : {{this.fullname}}</label>
+                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Edit fullname.....">
             </div>
             <div class="form-username">
                 <label for="username"> Username : {{this.username}}</label>
@@ -109,7 +109,7 @@
             <button type="submit" class="btn btn-primary suathongtin "> Sửa Thông Tin </button>
             
         </form>
-        <button  class="btn btn-primary dangxuat "><a href="/logout"> Đăng Xuất</a> </button>
+        <button  class="btn btn-primary dangxuat " ><a href="/logout"> Đăng Xuất</a> </button>
     </div>
    
 
