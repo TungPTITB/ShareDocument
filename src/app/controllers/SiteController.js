@@ -4,6 +4,7 @@ const { mutipleMongooseToObject } = require('../../util/mongoose');
 const { JWT_KEY }= require('./env');
 const jwt = require("jsonwebtoken");
 const {updateValidation} = require('./validation');
+const PAGE_SIZE = 5;
 
 class SiteController {
     // [GET] 
@@ -60,29 +61,17 @@ class SiteController {
           res.redirect('/');
         }
         }
-
-      showMenu(req, res, next ) {
-        res.render('menu');
-      }
-
-      showIntro(req, res,next ) {
-        res.render('intro');
-      }
-
-      showSlug(req, res,next ) {
-        res.render('document');
-      }
      
-    showHome(req,res,next){
-        Document.find({})
-        .then(documents =>{
+    // showHome(req,res,next){
+    //     Document.find({})
+    //     .then(documents =>{
             
-            res.render('home',{ 
-                documents: mutipleMongooseToObject(documents)});
-        })
-        .catch(next);
+    //         res.render('home',{ 
+    //             documents: mutipleMongooseToObject(documents)});
+    //     })
+    //     .catch(next);
         
-     }   
+    //  }   
     
     // [GET] /search
     search(req, res, next) {
@@ -101,42 +90,40 @@ class SiteController {
         .catch(next);  
         
     }
-    //POST
-    async add(req, res, next){
-        const course = new Course({
-            name: req.body.name,
-            username: req.body.description
-        });
-        try{
-            const savedCourse = await course.save();
-            res.json(savedCourse);
-        }catch(err){
-            res.json({massage : err});
-        }
-       }
+    showHome(req,res,next){
+      var page = req.query.page;
+      if(page){
+          //get page
+          page = parseInt(page)
+          if(page < 0){ 
+              page = 1
+          }
+          var soluongboqua = (page - 1) * PAGE_SIZE
+          Document.find({})
+          .skip(soluongboqua)
+          .limit(PAGE_SIZE)
+          .then(documents => {
+            res.render('documents/showmenu', {
+                documents:mutipleMongooseToObject(documents)
+            });
+        })
+          .catch(err=>{
+              res.status(500).json('loi sever')
+          })            
+      }else{
+          //GET ALL PAGE
+          Document.find({})
+          .then(documents => {
+            res.render('documents/showmenu', {
+                documents:mutipleMongooseToObject(documents)
+            });
+        })
+          .catch(err=>{
+              res.status(500).json('loi sever')
+          })
+      }
+  }
 
-    //DELETE
-    async dlt(req, res){
-        try {
-            const removeCourse = await Course.remove({ _id: req.params.courseId});
-            res.json(removeCourse);
-        } catch (err) {
-            res.json({massage : err});
-        }
-    }
-
-    //UPDATE
-    async up(req, res){
-        try {
-            const updateCourse = await Course.updateOne(
-                { _id : req.params.courseId },
-                { $set: { name: req.body.name, description: req.body.description}}
-            );
-            res.json(updateCourse);
-        } catch (err) {
-            res.json({massage : err});
-        }
-    }
 
 }
 
