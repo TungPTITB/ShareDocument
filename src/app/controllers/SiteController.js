@@ -4,7 +4,7 @@ const { mutipleMongooseToObject } = require('../../util/mongoose');
 const { JWT_KEY }= require('./env');
 const jwt = require("jsonwebtoken");
 const {updateValidation} = require('./validation');
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 20;
 
 class SiteController {
     // [GET] 
